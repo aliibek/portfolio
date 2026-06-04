@@ -1,0 +1,27 @@
+<svg width="100%" viewBox="0 0 770 470" role="img" xmlns="http://www.w3.org/2000/svg" style="">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">PollBoard logo card</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">PollBoard logo and name on dark green background</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#04342C"/>
+      <stop offset="100%" stop-color="#0F6E56"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="680" height="400" fill="url(#bg)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Subtle circle accents -->
+  <circle cx="600" cy="80" r="160" fill="#1D9E75" fill-opacity="0.15" style="fill:rgb(29, 158, 117);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="80" cy="340" r="120" fill="#085041" fill-opacity="0.4" style="fill:rgb(8, 80, 65);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Logo icon (checkbox style matching PollBoard brand) -->
+  <rect x="258" y="138" width="60" height="60" rx="12" fill="none" stroke="#5DCAA5" stroke-width="4" style="fill:none;stroke:rgb(93, 202, 165);color:rgb(0, 0, 0);stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polyline points="272,168 284,180 308,156" fill="none" stroke="#5DCAA5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:rgb(93, 202, 165);color:rgb(0, 0, 0);stroke-width:4px;stroke-linecap:round;stroke-linejoin:round;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Name -->
+  <text x="340" y="185" font-family="sans-serif" font-size="42" font-weight="800" fill="#ffffff" letter-spacing="-1" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:42px;font-weight:800;text-anchor:start;dominant-baseline:auto">PollBoard</text>
+
+  <!-- Tagline -->
+  <text x="340" y="232" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#9FE1CB" letter-spacing="3" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:13px;font-weight:400;text-anchor:middle;dominant-baseline:auto">REAL-TIME POLLING</text>
+</svg>

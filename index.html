@@ -18,6 +18,7 @@
             --text: #000000;
             --text-dim: #666666;
             --border: #e0e0e0;
+            --max-width: 900px;
         }
 
         body {
@@ -32,7 +33,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 5%;
+            padding: 1.5rem max(2rem, calc((100% - var(--max-width)) / 2));
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -59,6 +60,15 @@
             font-weight: 600;
             color: var(--accent);
             letter-spacing: -0.5px;
+        }
+
+        .logo a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .logo a:hover {
+            color: var(--accent);
         }
 
         .nav-links {
@@ -135,9 +145,9 @@
             padding: 5rem 2rem;
         }
 
-        .mobile-menu.active {
-            right: 0;
-        }
+        /*.mobile-menu.active {*/
+        /*    right: 0;*/
+        /*}*/
 
         .mobile-menu ul {
             list-style: none;
@@ -171,10 +181,10 @@
             z-index: 998;
         }
 
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        /*.overlay.active {*/
+        /*    opacity: 1;*/
+        /*    visibility: visible;*/
+        /*}*/
 
         .hero {
             min-height: 100vh;
@@ -182,7 +192,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            padding: 6rem 10% 4rem;
+            padding: 6rem max(2rem, calc((100% - var(--max-width)) / 2)) 4rem;
         }
 
         .hero-content {
@@ -201,19 +211,65 @@
             }
         }
 
-        .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -2px;
-            line-height: 1.1;
+        .hero-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 2.25rem;
         }
 
-        .hero p {
-            font-size: 1.25rem;
+        .hero-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+        }
+
+        .hero-name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.05;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-role {
+            font-size: 1.6rem;
             color: var(--text-dim);
-            margin-bottom: 2.5rem;
-            font-weight: 400;
+            font-weight: 500;
+            margin-bottom: 1.1rem;
+        }
+
+        .hero-socials {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-socials a {
+            color: var(--text);
+            display: inline-flex;
+            transition: opacity 0.2s;
+        }
+
+        .hero-socials a:hover {
+            opacity: 0.55;
+        }
+
+        .hero-socials svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .cta-btn {
@@ -234,8 +290,26 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
+        .cta-btn-outline {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .cta-btn-outline:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
         section {
-            padding: 5rem 10%;
+            padding: 5rem max(2rem, calc((100% - var(--max-width)) / 2));
             position: relative;
         }
 
@@ -250,6 +324,30 @@
             letter-spacing: -1px;
         }
 
+        #about {
+            text-align: center;
+        }
+
+        .about-content {
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-content strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -261,7 +359,8 @@
             border: 1px solid var(--border);
             overflow: hidden;
             transition: all 0.3s ease;
-            cursor: pointer;
+            display: flex;
+            flex-direction: column;
             opacity: 0;
             animation: fadeIn 0.6s ease forwards;
         }
@@ -270,8 +369,6 @@
         .project-card:nth-child(2) { animation-delay: 0.2s; }
         .project-card:nth-child(3) { animation-delay: 0.3s; }
         .project-card:nth-child(4) { animation-delay: 0.4s; }
-        .project-card:nth-child(5) { animation-delay: 0.5s; }
-        .project-card:nth-child(6) { animation-delay: 0.6s; }
 
         @keyframes fadeIn {
             to {
@@ -301,6 +398,9 @@
 
         .project-info {
             padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
         .project-info h3 {
@@ -315,39 +415,68 @@
             font-size: 0.95rem;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
         }
 
-        .skill-item {
-            padding: 2.5rem 1.5rem;
-            background: var(--bg-white);
+        .tag {
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.6rem;
+            background: var(--bg-light);
             border: 1px solid var(--border);
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            border-radius: 4px;
+            color: var(--text-dim);
         }
 
-        .skill-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        .project-links {
+            display: flex;
+            gap: 1.25rem;
+            margin-top: auto;
+            padding-top: 1.25rem;
         }
 
-        .skill-icon {
-            font-size: 2.5rem;
+        .project-links a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid var(--text);
+            padding-bottom: 2px;
+            transition: opacity 0.2s;
+        }
+
+        .project-links a:hover {
+            opacity: 0.55;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .skill-group h3 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
             margin-bottom: 1rem;
         }
 
-        .skill-item h3 {
-            font-size: 1rem;
-            font-weight: 500;
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         footer {
             text-align: center;
-            padding: 3rem 10%;
+            padding: 3rem max(2rem, calc((100% - var(--max-width)) / 2));
             background: var(--bg-white);
             color: var(--text-dim);
             border-top: 1px solid var(--border);
@@ -392,24 +521,48 @@
             }
 
             .hero {
-                padding: 5rem 5% 3rem;
+                padding: 6rem 1.5rem 3rem;
             }
 
-            .hero h1 {
+            .hero-top {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .hero-photo {
+                width: 140px;
+                height: 140px;
+            }
+
+            .hero-name {
                 font-size: 2.5rem;
                 letter-spacing: -1px;
             }
 
-            .hero p {
-                font-size: 1.1rem;
+            .hero-role {
+                font-size: 1.35rem;
+            }
+
+            .hero-socials {
+                justify-content: center;
+            }
+
+            .hero-btns {
+                justify-content: center;
             }
 
             section {
-                padding: 3rem 5%;
+                padding: 3rem 1.5rem;
             }
 
             h2 {
                 font-size: 2rem;
+            }
+
+            .about-content p {
+                font-size: 1.05rem;
             }
 
             .projects-grid {
@@ -427,9 +580,10 @@
 <div class="overlay" id="overlay"></div>
 
 <nav>
-    <div class="logo">Muhammad Ali</div>
+    <div class="logo"><a href="#home">aliibek</a></div>
     <ul class="nav-links">
         <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -444,6 +598,7 @@
 <div class="mobile-menu" id="mobileMenu">
     <ul>
         <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -452,82 +607,120 @@
 
 <section class="hero" id="home">
     <div class="hero-content">
-        <h1>Building digital experiences that matter.</h1>
-        <p>Developer focused on creating elegant solutions to complex problems.</p>
-        <a href="#projects" class="cta-btn">View My Work</a>
+        <div class="hero-top">
+            <img class="hero-photo" src="images/me.jpg" alt="Muhammad Ali">
+            <div class="hero-intro">
+                <h1 class="hero-name">Muhammad Ali</h1>
+                <p class="hero-role">Computer Science @ University of Arkansas</p>
+                <div class="hero-socials">
+                    <a href="https://github.com/aliibek" target="_blank" rel="noopener" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/alimadaminov/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="mailto:memukhammadali@gmail.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-btns">
+            <a href="#projects" class="cta-btn">Projects</a>
+            <a href="#about" class="cta-btn-outline">About Me</a>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About</h2>
+    <div class="about-content">
+        <p>I'm a <strong>Computer Science student at the University of Arkansas</strong> (graduating Spring 2027), focused on full-stack web development. I like owning a project end-to-end — from database schema and API design through real-time front-end features and deployment.</p>
+        <p>Most of my work lives in the <strong>React, TypeScript, and Node.js</strong> world. I care about getting the hard parts right where they actually belong: enforcing data integrity at the database layer, syncing real-time state to every client, and designing auth that balances security against friction — not just patching things in the UI.</p>
+        <p>Outside of building, I'm an active member of the <strong>ACM</strong> chapter on campus, where I work through weekly algorithmic challenges in Python and C++. I'm currently looking for software engineering internship opportunities.</p>
     </div>
 </section>
 
 <section id="projects">
     <h2>Selected Work</h2>
     <div class="projects-grid">
+
         <div class="project-card">
-            <div class="project-img">🚀</div>
+            <div class="project-img">
+                <img src="images/pollboard.svg" alt="PollBoard" style="width:100%; height:100%; object-fit:cover;">
+            </div>
             <div class="project-info">
-                <h3>Project One</h3>
-                <p>An innovative web application built with modern technologies and clean design principles.</p>
+                <h3>PollBoard</h3>
+                <p>Real-time polling with zero friction: create a poll, share a link, and results sync to every connected client the instant a vote lands. Built on Postgres change-data-capture, with one-vote-per-user enforced at the database layer and dual-mode auth — Google OAuth for creators, anonymous voting for participants.</p>
+                <div class="project-tags">
+                    <span class="tag">React</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Supabase</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Zustand</span>
+                    <span class="tag">Tailwind</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://pollboard-demo.vercel.app/" target="_blank" rel="noopener">Live Demo &rarr;</a>
+                    <a href="https://github.com/aliibek/pollboard" target="_blank" rel="noopener">Code &rarr;</a>
+                </div>
             </div>
         </div>
+
         <div class="project-card">
-            <div class="project-img">💡</div>
+            <div class="project-img">&#9201;</div>
             <div class="project-info">
-                <h3>Project Two</h3>
-                <p>A creative solution focused on user experience and seamless interaction.</p>
+                <h3>HourWise</h3>
+                <p>A full-stack MERN app for tracking how you spend your time. Scoped and shipped solo from zero: a streamlined modal-based logging workflow on the front end, backed by 10+ REST endpoints, JWT-secured accounts, and persistent sessions synced across devices.</p>
+                <div class="project-tags">
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Express.js</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">JWT</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aliibek/hourwise" target="_blank" rel="noopener">Code &rarr;</a>
+                    <!-- Add a Live Demo link here if it's deployed -->
+                </div>
             </div>
         </div>
-        <div class="project-card">
-            <div class="project-img">🎨</div>
-            <div class="project-info">
-                <h3>Project Three</h3>
-                <p>Beautiful design meets powerful functionality in this showcase piece.</p>
-            </div>
-        </div>
-        <div class="project-card">
-            <div class="project-img">⚡</div>
-            <div class="project-info">
-                <h3>Project Four</h3>
-                <p>High-performance application with cutting-edge features and architecture.</p>
-            </div>
-        </div>
-        <div class="project-card">
-            <div class="project-img">🌟</div>
-            <div class="project-info">
-                <h3>Project Five</h3>
-                <p>Award-winning design that pushes the boundaries of digital experiences.</p>
-            </div>
-        </div>
-        <div class="project-card">
-            <div class="project-img">🔥</div>
-            <div class="project-info">
-                <h3>Project Six</h3>
-                <p>Innovative approach to solving real-world challenges through technology.</p>
-            </div>
-        </div>
+
     </div>
 </section>
 
 <section id="skills">
-    <h2>Expertise</h2>
-    <div class="skills-grid">
-        <div class="skill-item">
-            <div class="skill-icon">💻</div>
-            <h3>Frontend Development</h3>
+    <h2>Skills</h2>
+    <div class="skills-list">
+        <div class="skill-group">
+            <h3>Languages</h3>
+            <div class="skill-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Python</span>
+                <span class="tag">C++</span>
+                <span class="tag">SQL</span>
+            </div>
         </div>
-        <div class="skill-item">
-            <div class="skill-icon">⚙️</div>
-            <h3>Backend Systems</h3>
+        <div class="skill-group">
+            <h3>Frontend</h3>
+            <div class="skill-tags">
+                <span class="tag">React.js</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">Tailwind</span>
+                <span class="tag">Zustand</span>
+            </div>
         </div>
-        <div class="skill-item">
-            <div class="skill-icon">📱</div>
-            <h3>Mobile Apps</h3>
-        </div>
-        <div class="skill-item">
-            <div class="skill-icon">☁️</div>
-            <h3>Cloud Infrastructure</h3>
-        </div>
-        <div class="skill-item">
-            <div class="skill-icon">🔧</div>
-            <h3>DevOps</h3>
+        <div class="skill-group">
+            <h3>Backend &amp; Databases</h3>
+            <div class="skill-tags">
+                <span class="tag">Node.js</span>
+                <span class="tag">Express.js</span>
+                <span class="tag">Django</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Supabase</span>
+            </div>
         </div>
     </div>
 </section>
@@ -539,7 +732,7 @@
         <a href="https://linkedin.com/in/alimadaminov/">LinkedIn</a>
         <a href="mailto:memukhammadali@gmail.com">Email</a>
     </div>
-    <p>&copy; 2026 Muhammad Ali. All rights reserved.</p>
+    <p>&copy; 2026 Muhammad Ali.</p>
 </footer>
 
 <script>
