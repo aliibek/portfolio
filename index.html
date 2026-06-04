@@ -110,6 +110,9 @@
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
+            padding: 8px;
+            margin-right: -8px;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .hamburger span {
@@ -134,38 +137,54 @@
         .mobile-menu {
             position: fixed;
             top: 0;
-            right: -100%;
-            width: 70%;
-            max-width: 300px;
+            left: 0;
+            width: 100%;
             height: 100vh;
             background: var(--bg-white);
-            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
-            transition: right 0.3s ease;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
             z-index: 999;
-            padding: 5rem 2rem;
+            padding: 4rem 2rem 2rem;
+            display: flex;
+            flex-direction: column;
         }
 
-        /*.mobile-menu.active {*/
-        /*    right: 0;*/
-        /*}*/
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-header {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-menu-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
 
         .mobile-menu ul {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
         }
 
         .mobile-menu a {
-            color: var(--text);
+            color: var(--text-dim);
             text-decoration: none;
-            font-size: 1.25rem;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-size: 1.5rem;
+            font-weight: 400;
+            display: block;
+            padding: 0.85rem 0;
+            transition: color 0.2s;
         }
 
         .mobile-menu a:hover {
-            color: var(--text-dim);
+            color: var(--text);
         }
 
         .overlay {
@@ -181,10 +200,10 @@
             z-index: 998;
         }
 
-        /*.overlay.active {*/
-        /*    opacity: 1;*/
-        /*    visibility: visible;*/
-        /*}*/
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
         .hero {
             min-height: 100vh;
@@ -265,6 +284,13 @@
             fill: currentColor;
         }
 
+        .hero-tagline {
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+            max-width: 640px;
+        }
+
         .hero-btns {
             display: flex;
             gap: 1rem;
@@ -308,6 +334,10 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
+        section, footer {
+            scroll-margin-top: 80px;
+        }
+
         section {
             padding: 5rem max(2rem, calc((100% - var(--max-width)) / 2));
             position: relative;
@@ -329,6 +359,7 @@
         }
 
         .about-content {
+            max-width: 760px;
             margin: 0 auto;
             text-align: left;
         }
@@ -549,8 +580,21 @@
                 justify-content: center;
             }
 
+            .hero-tagline {
+                font-size: 1.15rem;
+            }
+
             .hero-btns {
                 justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn,
+            .cta-btn-outline {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
             }
 
             section {
@@ -596,6 +640,7 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
+    <hr class="mobile-menu-divider">
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -720,6 +765,18 @@
                 <span class="tag">MongoDB</span>
                 <span class="tag">PostgreSQL</span>
                 <span class="tag">Supabase</span>
+            </div>
+        </div>
+        <div class="skill-group">
+            <h3>DevOps &amp; Tools</h3>
+            <div class="skill-tags">
+                <span class="tag">Docker</span>
+                <span class="tag">CI/CD</span>
+                <span class="tag">Git</span>
+                <span class="tag">GitHub</span>
+                <span class="tag">Jest</span>
+                <span class="tag">JWT</span>
+                <span class="tag">OAuth</span>
             </div>
         </div>
     </div>
